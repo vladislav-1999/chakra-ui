@@ -1,6 +1,15 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import { render } from "@testing-library/react";
+import { Provider } from "@/components/ui/provider";
+import { render as rtlRender } from "@testing-library/react";
 
+export function render(ui: React.ReactNode) {
+  return rtlRender(<>{ui}</>, {
+    wrapper: (props: React.PropsWithChildren) => (
+      <Provider>{props.children}</Provider>
+    ),
+  });
+}
+
+// Для обратной совместимости
 export function renderWithChakra(ui: React.ReactElement) {
-  return render(<ChakraProvider>{ui}</ChakraProvider>);
+  return render(ui);
 }
