@@ -223,7 +223,6 @@ const Demo4 = () => {
   return (
     <>
       <Box
-        as="Center"
         bg="tomato"
         p="4"
         _hover={{
